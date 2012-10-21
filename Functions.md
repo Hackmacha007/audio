@@ -1,6 +1,5 @@
 * **tmrpcm.play("filename");** plays a file
 * **tmrpcm.speakerPin = 11;** set to 11 for Mega, 9 for Uno, Nano, etc
-* **tmrpcm.volume(1);** raises or lowers the volume: 1 or -1
 * **tmrpcm.disable();** disables the timer on output pin and stops the music
 * **tmrpcm.stopPlayback();** stops the music, but leaves the timer running
 * **tmrpcm.isPlaying();**  returns 1 if music playing, 0 if not
