@@ -5,7 +5,7 @@
 
 * **Supported formats: WAV files, 8-bit, 8-20khz Sample Rate, mono**
 
-* **Supported devices: Arduino Uno, Nano, Mega, etc.
+* **Supported devices: Arduino Uno, Nano, Mega, etc.**
 
 * **Files easily converted using iTunes or other software:**
 
