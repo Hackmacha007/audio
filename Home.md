@@ -11,10 +11,11 @@ Many new features have recently been added, and are in development. See the [Adv
    Main formats: WAV files, 8-bit, 8-32khz Sample Rate, mono. See the [Advanced Features wiki page](https://github.com/TMRh20/TMRpcm/wiki/Advanced-Features) for other options.   
    Asynchronous Playback: Allows code in main loop to run while audio playback occurs.  
    Single timer operation: TIMER1 (Uno,Mega) or TIMER3,4 or 5 (Mega)  (TIMER2 support for compatibility)   
-   Complimentary output or dual speakers
-   2x Oversampling
+   Complimentary output or dual speakers  
+   2x Oversampling  
    Supported devices: Arduino Uno, Nano, Mega, etc.  
-   More! See the [Advanced Features wiki page](https://github.com/TMRh20/TMRpcm/wiki/Advanced-Features) for additional features
+   More! See the [Advanced Features wiki page](https://github.com/TMRh20/TMRpcm/wiki/Advanced-Features)
+   for additional features  
   
 Files easily converted:  
 Using iTunes:
