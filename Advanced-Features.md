@@ -11,7 +11,7 @@ Some of them are still being fine tuned. Please keep this in mind when enabling 
 See pcmConfig.h to configure the following options:  
 
 ### **User Defines**
-    The following options are configurable in TMRpcm.h:  
+    The following options are configurable in pcmConfig.h:  
     #define buffSize 128    Control the size of the 2 buffers (4 in MULTI mode)  
     #define ENABLE_MULTI    Enable multi track playback mode (Default single timer)  
     #define STEREO_OR_16BIT Enable playback of stereo or 16-bit files  
