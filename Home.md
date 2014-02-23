@@ -1,18 +1,20 @@
 Arduino library for asynchronous playback of PCM/WAV files direct from SD card
 
-Requires Arduino, SD card and output device (Speaker, Headphones, Amplifier, etc)
+Utilizes standard Arduino SD library, SD card and output device (Speaker, Headphones, Amplifier, etc)
 
+###**Recent Updates**
+Many new features have recently been added, and are in development. See the [Advanced Features wiki page](https://github.com/TMRh20/TMRpcm/wiki/Advanced-Features)
 
 ### **Features**
 
-   **NEW:** Up to 32khz sample rate support: Supported formats: WAV files, 8-bit, 8-32khz Sample Rate, mono  
-   **NEW**: Dual track playback. See the [Advanced Features wiki page](https://github.com/TMRh20/TMRpcm/wiki/Advanced-Features)  
    PCM/WAV playback direct from SD card  
+   Main formats: WAV files, 8-bit, 8-32khz Sample Rate, mono. See the [Advanced Features wiki page](https://github.com/TMRh20/TMRpcm/wiki/Advanced-Features) for other options.   
    Asynchronous Playback: Allows code in main loop to run while audio playback occurs.  
-   Playback uses a single timer: Timer 1 (Uno,Mega) or Timer 3,4 or 5 (Mega)  
-   Quality setting: Allows 2xSample rate operation for oversampling with low sample rates  
+   Single timer operation: TIMER1 (Uno,Mega) or TIMER3,4 or 5 (Mega)  (TIMER2 support for compatibility)   
+   Complimentary output or dual speakers
+   2x Oversampling
    Supported devices: Arduino Uno, Nano, Mega, etc.  
-   Supports complimentary output or dual speakers  
+   More! See the [Advanced Features wiki page](https://github.com/TMRh20/TMRpcm/wiki/Advanced-Features) for additional features
   
 Files easily converted:  
 Using iTunes:
@@ -32,32 +34,51 @@ Then copy file to SD card using computer
 
 ### **Functions**
     TMRpcm audio;
-    audio.play("filename");   plays a file
-    audio.speakerPin = 11;    set to 5,6,11 or 46 for Mega, 9 for Uno, Nano, etc
-    audio.disable();          disables the timer on output pin and stops the music
-    audio.stopPlayback();     stops the music, but leaves the timer running
-    audio.isPlaying();        returns 1 if music playing, 0 if not
-    audio.pause();            pauses/unpauses playback
-    audio.quality(1);         Set 1 for 2x oversampling
-    audio.volume(0);          1(up) or 0(down) to control volume
-    audio.setVolume(0);       0 to 7. Set volume level
+    audio.play("filename");    plays a file
+    audio.play("filename",30); plays a file starting at 30 seconds into the track
+    audio.speakerPin = 11;     set to 5,6,11 or 46 for Mega, 9 for Uno, Nano, etc.
+    audio.disable();           disables the timer on output pin and stops the music
+    audio.stopPlayback();      stops the music, but leaves the timer running
+    audio.isPlaying();         returns 1 if music playing, 0 if not
+    audio.pause();             pauses/unpauses playback
+    audio.quality(1);          Set 1 for 2x oversampling
+    audio.volume(0);           1(up) or 0(down) to control volume
+    audio.setVolume(0);        0 to 7. Set volume level
   
-See the [Advanced Features wiki page](https://github.com/TMRh20/TMRpcm/wiki/Advanced-Features) for additional options  
+See the [Advanced Features wiki page](https://github.com/TMRh20/TMRpcm/wiki/Advanced-Features) for additional options and functions. 
   
 **Contributed HowTo:** http://maxoffsky.com/maxoffsky-blog/how-to-play-wav-audio-files-with-arduino-uno-and-microsd-card/  
 **Details at:** http://tmrh20.blogspot.com
 
 ### **Known Limitations**
 
-* This library is very processor intensive, so code execution during playback will be slower than normal
-* Processing load can be reduced by using lower quality sounds encoded at a lower sample rate (8khz minimum)
-* May interfere with other libraries that rely on interrupts. The isPlaying() function can be used to
-  prevent parallel code execution.
-* Update to volume control allows greater range in low volume control, but will distort
-  if volume too high
+    This library can be very processor intensive, and code execution during playback will be slower than normal
+    Processing load can be reduced by using lower quality sounds encoded at a lower sample rate (8khz minimum)
+    May interfere with other libraries that rely on interrupts. The isPlaying() disable() or noInterrupts()
+     functions can be used to prevent parallel code execution.
+    Volume control allows good range in volume control, but will distort if volume too high
 
 ### **Installation**
 
-1. Download current package: <https://github.com/TMRh20/TMRpcm/archive/master.zip>
-2. See the Manual Installation section at: <http://arduino.cc/en/Guide/Libraries>
+ 1. Download current package: <https://github.com/TMRh20/TMRpcm/archive/master.zip>
+ 2. See the Manual Installation section at: <http://arduino.cc/en/Guide/Libraries>
   
+### **Common Issues**
+
+    1. Pop or click when playback is started or stopped:
+       Ramps are built into the library to prevent popping when PWM is engaged, disabled, and between music tracks of the same
+       sample rate. See the [Advanced Features wiki page](https://github.com/TMRh20/TMRpcm/wiki/Advanced-Features) for causes and fixes.
+    2. Popping or clicking when music is playing
+       If pops or clicks are heard during playback, it is most likely that buffer underruns are occurring or the volume is just too high.
+       Ensure that #define SD_FULLSPEED is uncommented in TMRpcm.h. The value in #define buffSize 128 can be increased to provide
+       additional memory for playback, which will reduce these issues. Audio can be encoded at a lower sample rate otherwise.
+    3. The library works fine on its own, but doesn't play when library <name> is also included.
+       The first thing to check is memory usage, since nothing will work if out of memory.
+       This library uses a 16-bit timer for playback. Boards like Uno, Nano, etc. only have one 16-bit timer. The option
+       USE_TIMER2 can be uncommented in TMRpcm.h if TIMER1 is required for something else.
+       See the [Advanced Features wiki page](https://github.com/TMRh20/TMRpcm/wiki/Advanced-Features)
+    4. Error message when compiling: "Has no member named..." or "no matching function..."
+       These errors usually indicate that commands are being run which are not available in the current configuration. Check
+       the #defines in TMRpcm.h to ensure you are using the correct mode(s), and ensure your commands are correct.
+   
+   
