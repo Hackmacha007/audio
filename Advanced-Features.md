@@ -66,7 +66,8 @@ Note: More wav formats etc. will be added to this eventually.
     Normal MODE2 Stereo (4 pins, one track) ( 4 Speakers OR Complimentary output (pin-to-pin) with 2 Speakers) 
     
     Multi mode ( 2 pins, two tracks )	    ( 1 or 2 speakers)
-    Multi mode Stereo ( 4 pins, 2 tracks)   ( 2 or 4 speakers, non complimentary)    
+    Multi mode Stereo ( 4 pins, 2 tracks)   ( 2 or 4 speakers, non complimentary)  
+    Multi MODE2 (4 pins, 2 tracks)          ( 2 complimentary, or 4 non complimentary)
 
 ### **Stereo and 16-Bit Playback**
    These modes require additional resources and processing power since double the data must be read from the SD card.
