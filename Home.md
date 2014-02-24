@@ -71,15 +71,18 @@ See the [Advanced Features wiki page](https://github.com/TMRh20/TMRpcm/wiki/Adva
        sample rate. See the [Advanced Features wiki page](https://github.com/TMRh20/TMRpcm/wiki/Advanced-Features) for causes and fixes.
     2. Popping or clicking when music is playing
        If pops or clicks are heard during playback, it is most likely that buffer underruns are occurring or the volume is just too high.
-       Ensure that #define SD_FULLSPEED is uncommented in TMRpcm.h. The value in #define buffSize 128 can be increased to provide
+       Ensure that #define SD_FULLSPEED is uncommented in pcmConfig.h. The value in #define buffSize 128 can be increased to provide
        additional memory for playback, which will reduce these issues. Audio can be encoded at a lower sample rate otherwise.
     3. The library works fine on its own, but doesn't play when library <name> is also included.
-       The first thing to check is memory usage, since nothing will work if out of memory.
-       This library uses a 16-bit timer for playback. Boards like Uno, Nano, etc. only have one 16-bit timer. The option
-       USE_TIMER2 can be uncommented in TMRpcm.h if TIMER1 is required for something else.
+       The first thing to check is memory usage, since nothing will work if out of memory.         
+       The library uses two timer pins by default. This may interfere with other libraries that use it.
+       (pin 10 on Arduino Uno) Disable the second pin by uncommenting the line #define DISABLE_SPEAKER2
+       in pcmConfig.h
+       Boards like Uno only have one 16-bit timer. #define USE_TIMER2 can be uncommented in pcmConfig.h
+       if TIMER1 is required for something else.
        See the [Advanced Features wiki page](https://github.com/TMRh20/TMRpcm/wiki/Advanced-Features)
     4. Error message when compiling: "Has no member named..." or "no matching function..."
        These errors usually indicate that commands are being run which are not available in the current configuration. Check
-       the #defines in TMRpcm.h to ensure you are using the correct mode(s), and ensure your commands are correct.
+       the #defines in pcmConfig.h to ensure you are using the correct mode(s), and ensure your commands are correct.
    
    
