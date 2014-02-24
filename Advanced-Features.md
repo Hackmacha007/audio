@@ -12,16 +12,16 @@ See pcmConfig.h to configure the following options:
 
 ### **User Defines**
     The following options are configurable in pcmConfig.h:  
-    #define buffSize 128    Control the size of the 2 buffers (4 in MULTI mode)  
-    #define ENABLE_MULTI    Enable multi track playback mode (Default single timer)  
-    #define STEREO_OR_16BIT Enable playback of stereo or 16-bit files  
-        #define MODE2       Enable dual timer multi track playback mode. Not available with TIMER2  
-    #define SDFAT           SdFat library uses less prog space and memory. See SDFAT example included with lib.  
-    #define HANDLE_TAGS	    Skip tags for WAV files that contain metadata  
-    #define USE_TIMER2	    Use 8-bit TIMER2 instead of 16-bit timer(s)  
-    #define rampMega	    Force manual selection of PWM enable/disable ramping method.  
-    #define ENABLE_RF       Enable streaming of audio over radio link (NRF24L01+)  
-
+    #define buffSize 128     Control the size of the 2 buffers (4 in MULTI mode)  
+    #define DISABLE_SPEAKER2 Disables default second speaker pin for compatibility with other libs. (pin 10 on Uno)
+    #define ENABLE_MULTI     Enable multi track playback mode (Default single timer)  
+    #define STEREO_OR_16BIT  Enable playback of stereo or 16-bit files  
+        #define MODE2        Enable dual timer multi track playback mode. Not available with TIMER2  
+    #define SDFAT            SdFat library uses less prog space and memory. See SDFAT example included with lib.  
+    #define HANDLE_TAGS	     Skip tags for WAV files that contain metadata  
+    #define USE_TIMER2	     Use 8-bit TIMER2 instead of 16-bit timer(s)  
+    #define rampMega	     Force manual selection of PWM enable/disable ramping method.  
+    #define ENABLE_RF        Enable streaming of audio over radio link (NRF24L01+)      
 
 ### **Simple Digital WAV File generation**
 These features will generate standards compliant WAV files. Raw data from analog inputs or other sensors or information sources
