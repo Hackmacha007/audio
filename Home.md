@@ -75,14 +75,12 @@ See the [Advanced Features wiki page](https://github.com/TMRh20/TMRpcm/wiki/Adva
        additional memory for playback, which will reduce these issues. Audio can be encoded at a lower sample rate otherwise.
     3. The library works fine on its own, but doesn't play when library <name> is also included.
        The first thing to check is memory usage, since nothing will work if out of memory.         
-       The library uses two timer pins by default. This may interfere with other libraries that use it.
-       (pin 10 on Arduino Uno) Disable the second pin by uncommenting the line #define DISABLE_SPEAKER2
-       in pcmConfig.h
-       Boards like Uno only have one 16-bit timer. #define USE_TIMER2 can be uncommented in pcmConfig.h
-       if TIMER1 is required for something else.
-       See the [Advanced Features wiki page](https://github.com/TMRh20/TMRpcm/wiki/Advanced-Features)
+       The library uses two timer pins by default. This may interfere with other libraries that use it. (pin 10 on Arduino Uno) 
+       Disable the second pin by uncommenting the line #define DISABLE_SPEAKER2 in pcmConfig.h
+       Boards like Uno only have one 16-bit timer. #define USE_TIMER2 can be uncommented in pcmConfig.h if TIMER1 is required for
+       something else. See the [Advanced Features wiki page](https://github.com/TMRh20/TMRpcm/wiki/Advanced-Features)
     4. Error message when compiling: "Has no member named..." or "no matching function..."
-       These errors usually indicate that commands are being run which are not available in the current configuration. Check
-       the #defines in pcmConfig.h to ensure you are using the correct mode(s), and ensure your commands are correct.
+       These errors usually indicate that commands are being run which are not available in the current configuration. Check the
+       #defines in pcmConfig.h to ensure you are using the correct mode(s), and ensure your commands are correct.
    
    
