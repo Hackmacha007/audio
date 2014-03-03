@@ -23,6 +23,16 @@ See pcmConfig.h to configure the following options:
     #define rampMega	     Force manual selection of PWM enable/disable ramping method.  
     #define ENABLE_RF        Enable streaming of audio over radio link (NRF24L01+)      
 
+### **Speaker2/Complimentary Mode**
+This library outputs WAV data to two timer pins by default, although only one is fully enabled by default.
+    
+    The complimentary pin must be set as an output to enable:  
+    eg:  
+    Arduino Uno (Single Output): audio.speakerPin = 9;  
+    Arduino Uno (Complimentary Output): audio.speakerPin = 9; pinMode(10,OUTPUT);  
+      
+    Uncomment the line #define DISABLE_SPEAKER2 in pcmConfig.h to fully disable the second pin.
+
 ### **Simple Digital WAV File generation**
 These features will generate standards compliant WAV files. Raw data from analog inputs or other sensors or information sources
 can be written to the file to generate digital audio that can be played on any device that supports WAV files, or easily converted
@@ -42,7 +52,7 @@ Note: More wav formats etc. will be added to this eventually.
 
     Functions:
     The functions in multi mode are slightly different than standard mode:
-    audio.speakerPin2 = 5;        Same functionality as standard mode
+    audio.speakerPin2 = 5;        Same functionality as standard mode, only used with 4 pin output
     audio.play("sound.wav");      Play a file on output 0
     audio.play("sound.wav",30,1); Play a file starting at 30 seconds, on output 1
     audio.play("sound.wav",0);    Play(WaveFile,Output 0 or 1) Defined by speakerpin and speakerpin2
@@ -50,24 +60,27 @@ Note: More wav formats etc. will be added to this eventually.
     audio.isPlaying(0);        Can include output number 0 or 1
 
     Modes:
-    Default: Uses the same timer and pins as regular mode with complimentary output
-    MODE2: Uses two 16-bit timers and up to 4 pins
+    Default: Uses the same timer and pins as regular mode with complimentary output  
+    MODE2: Uses two 16-bit timers and up to 4 pins  
 
     Usage:
     16kHz-20kHz sample rate recommended
     Memory buffer can be increased for improved performance
     Sounds played together should be of the same sample rate
-    Uncomment the define in TMRpcm.h to enable multi mode
+    Uncomment the define in pcmConfig.h to enable multi mode
+    The audio.speakerPin2 variable must be set in 4-pin mode to select the additional timer/pins to be used.
 
     Modes Simplified:
     
     Normal mode ( 2 pins, one track)	    ( 1 or 2 speakers)
     Normal mode Stereo ( 2 pins, one track) ( 2 Speakers, non complimentary (pin to ground) )
-    Normal MODE2 Stereo (4 pins, one track) ( 4 Speakers OR Complimentary output (pin-to-pin) with 2 Speakers) 
+    Normal MODE2 Stereo (4 pins, one track) ( 4 Speakers OR Complimentary output (pin-to-pin) with 2 Speakers)
     
     Multi mode ( 2 pins, two tracks )	    ( 1 or 2 speakers)
     Multi mode Stereo ( 4 pins, 2 tracks)   ( 2 or 4 speakers, non complimentary)  
     Multi MODE2 (4 pins, 2 tracks)          ( 2 complimentary, or 4 non complimentary)
+  
+    Note: All 4-pin modes require a board with two or more 16-bit timers.
 
 ### **Stereo and 16-Bit Playback**
    These modes require additional resources and processing power since double the data must be read from the SD card.
@@ -141,8 +154,9 @@ SpeakerPins - Pin3 only on Uno,Nano,etc
 To enable usage of 8-bit TIMER2, uncomment #define USE_TIMER2 in the user defines section  
 
     Notes:
-    1. Playback speed will be slightly different than with 16-bit timers.
-    2. TIMER2 playback supports non-standard sample rates:
+    1. This is usually not the best solution.
+    2. Playback speed will be slightly different than with 16-bit timers.
+    3. TIMER2 playback supports non-standard sample rates:
        31.4 kHz, 23.5 kHz, and 15.7 kHz    
     4. Oversampling is on by default and cannot be changed in this mode
     5. 24-32kHz sample rate with 128buffer size is recommended
@@ -182,10 +196,10 @@ using NRF24L01+ radio modules. The code is proof of concept only.
     2. Open and run the RX example under the examples folder
     
     To enable controller:
-    1. Open TMRpcm.h and uncomment the #define ENABLE_RF line
+    1. Open pcmConfig.h and uncomment the #define ENABLE_RF line
     2. Open up and run one of the two example files in streamingExamples folder
 
 Note: The ENABLE_RF line MUST be commented if not using RF features
 
-The transmitter/streamer was tested using an Arduino Mega, and uses interrupt 5 (Pin 18) connected to the radio module interrupt pin.
+The transmitter/streamer was tested using an Arduino Mega, and uses interrupt 5 (Pin 18) connected to the radio module interrupt pin. It seems that this module must be running on 5v for the interrupt to function.
          
