@@ -7,14 +7,14 @@ Many new features have recently been added, and are in development. See the [Adv
 
 ### **Features**
 
-   PCM/WAV playback direct from SD card  
-   Main formats: WAV files, 8-bit, 8-32khz Sample Rate, mono. See the [Advanced Features wiki page](https://github.com/TMRh20/TMRpcm/wiki/Advanced-Features) for other options.   
-   Asynchronous Playback: Allows code in main loop to run while audio playback occurs.  
-   Single timer operation: TIMER1 (Uno,Mega) or TIMER3,4 or 5 (Mega)  (TIMER2 support for compatibility)   
-   Complimentary output or dual speakers  
-   2x Oversampling  
-   Supported devices: Arduino Uno, Nano, Mega, etc.  
-   More! See the [Advanced Features wiki page](https://github.com/TMRh20/TMRpcm/wiki/Advanced-Features)
+   * PCM/WAV playback direct from SD card  
+   * Main formats: WAV files, 8-bit, 8-32khz Sample Rate, mono.  
+   * Asynchronous Playback: Allows code in main loop to run while audio playback occurs.  
+   * Single timer operation: TIMER1 (Uno,Mega) or TIMER3,4 or 5 (Mega)  (TIMER2 support for compatibility)   
+   * Complimentary output or dual speakers  
+   * 2x Oversampling  
+   * Supported devices: Arduino Uno, Nano, Mega, etc.  
+   * More! See the [Advanced Features wiki page](https://github.com/TMRh20/TMRpcm/wiki/Advanced-Features)
    for additional features  
   
 Files easily converted:  
@@ -46,8 +46,7 @@ Then copy file to SD card using computer
     audio.volume(0);           1(up) or 0(down) to control volume
     audio.setVolume(0);        0 to 7. Set volume level
   
-See the [Advanced Features wiki page](https://github.com/TMRh20/TMRpcm/wiki/Advanced-Features) for additional options and functions. 
-  
+ 
 **Contributed HowTo:** http://maxoffsky.com/maxoffsky-blog/how-to-play-wav-audio-files-with-arduino-uno-and-microsd-card/  
 **Details at:** http://tmrh20.blogspot.com
 
