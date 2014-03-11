@@ -33,20 +33,6 @@ This library outputs WAV data to two timer pins by default, although only one is
       
     Uncomment the line #define DISABLE_SPEAKER2 in pcmConfig.h to fully disable the second pin.
 
-### **Simple Digital WAV File generation**
-These features will generate standards compliant WAV files. Raw data from analog inputs or other sensors or information sources
-can be written to the file to generate digital audio that can be played on any device that supports WAV files, or easily converted
-to other formats.  
-Note: More wav formats etc. will be added to this eventually.  
-
-    Syntax: audio.createWavTemplate(<Song Name>,<Sample Rate>);
-            audio.finalizeWavTemplate(<Song Name>);
-    
-    Usage: See the example included with the library. Generate the template file, then write data to it starting at 44 bytes.
-    	   Use the finalizeWavTemplate comand to add the file size details to the file prior to playback.. 
-    
-    Notes: If the specified file exists, it will be overwritten for creation, but only updated for finalization.
-
 ### **Multi Mode**
  Multi Mode enables simultaneous playback of two audio tracks.
 
@@ -178,6 +164,21 @@ Trying to reduce all of the popping noises created from PWM has been a struggle,
     disable() function to turn the timers off between changes. Also see #4.  
     4.An option HANDLE_TAGS has been included in pcmConfig.h to allow proper playback of wav files
     with included metadata (ID3 or LIST info)  
+
+### **Simple Digital WAV File generation**
+These features will generate standards compliant WAV files. Raw data from analog inputs or other sensors or information sources
+can be written to the file to generate digital audio that can be played on any device that supports WAV files, or easily converted
+to other formats.  
+Note: More wav formats etc. will be added to this eventually.  
+
+    Syntax: audio.createWavTemplate(<Song Name>,<Sample Rate>);
+            audio.finalizeWavTemplate(<Song Name>);
+    
+    Usage: See the example included with the library. Generate the template file, then write data to it starting at 44 bytes.
+    	   Use the finalizeWavTemplate comand to add the file size details to the file prior to playback.. 
+    
+    Notes: If the specified file exists, it will be overwritten for creation, but only updated for finalization. These functions
+    are called automatically when using the recording functions.
   
 ### **Recording Audio**
 Audio recording is still being tested and may not perform as expected. 
