@@ -179,6 +179,27 @@ Trying to reduce all of the popping noises created from PWM has been a struggle,
     4.An option HANDLE_TAGS has been included in pcmConfig.h to allow proper playback of wav files
     with included metadata (ID3 or LIST info)  
   
+### **Recording Audio**
+Audio recording is still being tested and may not perform as expected. 
+
+    Functions:  
+    startRecording - Starts recording from the specified analog pin  
+    stopRecording -  Stops the recording and finalizes the wav file  
+  
+    Syntax: audio.startRecording(<Song Name>,<Sample Rate>, <analog pin>);  
+    	    audio.stopRecording(<Song Name>);  
+  
+    Usage: 
+    1. Uncomment #define buffSize 128 AND #define ENABLE_RECORDING in pcmConfig.h
+    2. Start recording:
+    audio.startRecording("sound.wav",16000,A0);  
+    3. Stop recording: 
+    audio.stopRecording("sound.wav");  
+
+    Notes: SdFat library is recommended for recording.
+    Class 4 SD card minimum recommended
+    May need to increase buffSize
+
 ### **Audio streaming over NRF24L01+ radio link**
 This optional receiver library is included to enable PCM/WAV streaming
 using NRF24L01+ radio modules. The code is proof of concept only.
