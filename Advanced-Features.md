@@ -187,7 +187,11 @@ Audio recording is still being tested and may not perform as expected.
     startRecording - Starts recording from the specified analog pin  
     stopRecording -  Stops the recording and finalizes the wav file  
   
-    Syntax: audio.startRecording(<Song Name>,<Sample Rate>, <analog pin>);  
+    Pass-through Mode - Outputs audio to speaker during recording
+    Modes:  0:Normal/None, 1:Speaker enable  2:No recording, speaker out only
+    
+    Syntax: audio.startRecording(<Song Name>,<Sample Rate>, <analog pin>);
+            audio.startRecording(<Song Name>,<Sample Rate>, <analog pin>, <passthrough mode>);
     	    audio.stopRecording(<Song Name>);  
   
     Usage: 
