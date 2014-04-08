@@ -1,7 +1,12 @@
 Arduino library for asynchronous playback of PCM/WAV files direct from SD card
 
 Utilizes standard Arduino SD library, SD card and output device (Speaker, Headphones, Amplifier, etc)
-
+  
+###**Supported Boards**
+All 328 based boards: Arduino Uno, Nano, Duemilanove, etc  
+Mega Types: 1280, 2560, etc  
+No Due support currently.  
+  
 ###**Recent Updates**
 Many new features have recently been added, and are in development. See the [Advanced Features wiki page](https://github.com/TMRh20/TMRpcm/wiki/Advanced-Features)
 
