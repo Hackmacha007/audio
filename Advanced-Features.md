@@ -206,26 +206,24 @@ Audio recording is still being tested and may not perform as expected.
     May need to increase buffSize
 
 ### **Audio streaming over NRF24L01+ radio link**
-This optional receiver library is included to enable PCM/WAV streaming
-using NRF24L01+ radio modules. The code is proof of concept only.
+This optional receiver library is included to enable PCM/WAV streaming/multicasting
+using NRF24L01+ radio modules, and utilizes the newly updated [RF24 Radio Library]( https://github.com/TMRh20/RF24/archive/master.zip ) and newly created [RF24Audio library](https://github.com/TMRh20/RF24Audio/archive/master.zip)
 
     Requirements: 
-    1 Arduino Mega
-    1 or more Arduino (Uno,Mega,Nano,etc)
+    2 or more Arduino (Uno,Mega,Nano,etc)
     2 or more NRF24L01+ Radio Modules + RF24 Arduino Library
     1 SD card for controller
+    1 Output Device
 ###
     Step 1: Connect everything and test it all individually
 
     To enable receiver:
-    1. Copy the 'pcmRX' folder to your Arduino library folder.
-    2. Open and run the RX example under the examples folder
+    1. Download and install the RF24Audio and RF24 library from the link above 
+    2. Configure and upload the included 'minimal' example sketch
     
     To enable controller:
     1. Open pcmConfig.h and uncomment the #define ENABLE_RF line
-    2. Open up and run one of the two example files in streamingExamples folder
+    2. Open up, configure and run one of the two example files in streamingExamples folder
 
-Note: The ENABLE_RF line MUST be commented if not using RF features
-
-The transmitter/streamer was tested using an Arduino Mega, and uses interrupt 5 (Pin 18) connected to the radio module interrupt pin. It seems that this module must be running on 5v for the interrupt to function.
+Note: The ENABLE_RF line MUST be commented out if not using RF features
          
