@@ -50,6 +50,7 @@ Then copy file to SD card using computer
     audio.quality(1);          Set 1 for 2x oversampling
     audio.volume(0);           1(up) or 0(down) to control volume
     audio.setVolume(0);        0 to 7. Set volume level
+    audio.loop(1);             0 or 1. Can be changed during playback for full control of looping. 
   
  
 **Contributed HowTo:** http://maxoffsky.com/maxoffsky-blog/how-to-play-wav-audio-files-with-arduino-uno-and-microsd-card/  
@@ -87,4 +88,5 @@ Then copy file to SD card using computer
        These errors usually indicate that commands are being run which are not available in the current configuration. Check the
        #defines in pcmConfig.h to ensure you are using the correct mode(s), and ensure your commands are correct.
    
-   
+   See the video and comments at https://www.youtube.com/watch?v=LbqPgJe3Qd4 for some tips  
+   Also http://www.instructables.com/id/Playing-Wave-file-using-arduino/  
