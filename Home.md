@@ -71,6 +71,9 @@ Then copy file to SD card using computer
   
 ### **Common Issues**
 
+   See the video and comments at https://www.youtube.com/watch?v=LbqPgJe3Qd4 for some tips  
+   Also http://www.instructables.com/id/Playing-Wave-file-using-arduino/ 
+
     1. Pop or click when playback is started or stopped:
        Ramps are built into the library to prevent popping when PWM is engaged, disabled, and between music tracks of the same
        sample rate. See the [Advanced Features wiki page](https://github.com/TMRh20/TMRpcm/wiki/Advanced-Features) for causes and fixes.
@@ -88,5 +91,4 @@ Then copy file to SD card using computer
        These errors usually indicate that commands are being run which are not available in the current configuration. Check the
        #defines in pcmConfig.h to ensure you are using the correct mode(s), and ensure your commands are correct.
    
-   See the video and comments at https://www.youtube.com/watch?v=LbqPgJe3Qd4 for some tips  
-   Also http://www.instructables.com/id/Playing-Wave-file-using-arduino/  
+ 
