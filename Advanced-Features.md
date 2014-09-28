@@ -44,7 +44,9 @@ This library outputs WAV data to two timer pins by default, although only one is
     audio.play("sound.wav",0);    Play(WaveFile,Output 0 or 1) Defined by speakerpin and speakerpin2
     audio.stopPlayback(0);     Can include output number 0 or 1
     audio.isPlaying(0);        Can include output number 0 or 1
-
+    audio.setVolume(4,0);      Set the volume for output 0
+    audio.volume(0,1);         Decrease the volume for output 1  
+    
     Modes:
     Default: Uses the same timer and pins as regular mode with complimentary output  
     MODE2: Uses two 16-bit timers and up to 4 pins  
