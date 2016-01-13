@@ -102,7 +102,7 @@ included in the sketch. See the SDFAT example included with the library.
 
 ### **Metadata (ID3v2.3 and LIST tags)**
  Functions have been added to read Song, Artist, and Album info from ID3v2.3 and LIST tags in WAV files
- Note: Using these functions will increase program space and memory usage.
+ Note: [Audacity](http://audacityteam.org/) is the only supported program to add, modify or edit metadata.
     
     Functions:
     listInfo - Reads LIST tags into a character buffer, returns the length of the tag
