@@ -38,6 +38,20 @@ Using Audacity:
     
 Then copy file to SD card using computer
 
+### **Connecting Everything**
+The SD card should be connected as usual per https://www.arduino.cc/en/reference/SD 
+
+The speaker can be connected directly to the output pins. On ATMega328 devices (Uno,Nano,etc) pins 9,10. See your board info for the main 16-bit timer/PWM output pins of your board.
+
+If using an amplifier, consider that the output is a choppy digital PWM signal, not a smooth analog signal.
+
+Note: Advice is often given NOT to connect a speaker directly to the digital pins on an Arduino. This is typically true, but TMRpcm is designed and tested with this configuration:
+- By program design, there should never be a DC current flowing from PIN->GND or PIN->PIN, it will always be either a LOW-LOW state or a high frequency PWM signal.
+- Standard rules of DC current (ie voltage/resistance=current) do NOT apply because this is more comparable to a HF A/C waveform
+- The induced resistance (impedance) protects the MCU from an over-current situation
+
+Disclaimer: Take advice at your own risk, I have never had a problem over years of usage.
+
 ### **Functions**
     TMRpcm audio;
     audio.play("filename");    plays a file
