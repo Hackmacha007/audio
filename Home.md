@@ -50,7 +50,7 @@ Note: Advice is often given NOT to connect a speaker directly to the digital pin
 - Standard rules of DC current (ie voltage/resistance=current) do NOT apply because this is more comparable to a HF A/C waveform
 - The induced resistance (impedance) protects the MCU from an over-current situation
 
-Disclaimer: Take advice at your own risk, I have never had a problem over years of usage.
+Disclaimer: Take advice at your own risk, I have never had a problem over years of usage with small 8-ohm speakers.
 
 ### **Functions**
     TMRpcm audio;
