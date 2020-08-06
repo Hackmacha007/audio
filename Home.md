@@ -5,7 +5,7 @@ Utilizes standard Arduino SD library, SD card and output device (Speaker, Headph
 ###**Supported Boards**
 All 328 based boards: Arduino Uno, Nano, Duemilanove, etc  
 Mega Types: 1280, 2560, etc  
-No Due support currently.  
+No Due support currently. See [Auto Analog Audio](http://tmrh20.github.io/AAAudio/)
   
 ###**Recent Updates**
 Many new features have recently been added, and are in development. See the [Advanced Features wiki page](https://github.com/TMRh20/TMRpcm/wiki/Advanced-Features)
