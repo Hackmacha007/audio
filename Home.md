@@ -104,5 +104,5 @@ Disclaimer: Take advice at your own risk, I have never had a problem over years 
     4. Error message when compiling: "Has no member named..." or "no matching function..."
        These errors usually indicate that commands are being run which are not available in the current configuration. Check the
        #defines in pcmConfig.h to ensure you are using the correct mode(s), and ensure your commands are correct.
-   
+    5. When using an SD card, (fat16/fat32) filenames are limited to 8 characters & the file extension.
  
