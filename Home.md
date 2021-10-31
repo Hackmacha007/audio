@@ -7,8 +7,8 @@ All 328 based boards: Arduino Uno, Nano, Duemilanove, etc
 Mega Types: 1280, 2560, etc  
 No Due support currently. See [Auto Analog Audio](http://tmrh20.github.io/AAAudio/)
   
-###**Recent Updates**
-Many new features have recently been added, and are in development. See the [Advanced Features wiki page](https://github.com/TMRh20/TMRpcm/wiki/Advanced-Features)
+###**Advanced Features**
+See the [Advanced Features wiki page](https://github.com/TMRh20/TMRpcm/wiki/Advanced-Features)
 
 ### **Features**
 
@@ -56,6 +56,7 @@ Disclaimer: Take advice at your own risk, I have never had a problem over years 
     TMRpcm audio;
     audio.play("filename");    plays a file
     audio.play("filename",30); plays a file starting at 30 seconds into the track
+    audio.play(F("filename")); plays a file storing the string in program memory instead of RAM
     audio.speakerPin = 11;     set to 5,6,11 or 46 for Mega, 9 for Uno, Nano, etc.
     audio.disable();           disables the timer on output pin and stops the music
     audio.stopPlayback();      stops the music, but leaves the timer running
